@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform, Dimensions } from 'react-native';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 const colors = {
   black: '#000',
@@ -12,13 +13,21 @@ const colors = {
 export default StyleSheet.create({
   container: {
     backgroundColor: colors.transparent,
-    bottom: 10,
     zIndex: 100,
     position: 'absolute',
     left: 0,
     right: 0,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  top: {
+    top: getStatusBarHeight() + 10,
+  },
+  bottom: {
+    bottom: 10
+  },
+  center: {
+    top: Dimensions.get("window").height/2
   },
   messageContainer: {
     backgroundColor: colors.blue,
