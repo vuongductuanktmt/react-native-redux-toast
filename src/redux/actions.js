@@ -6,11 +6,12 @@ export const actions = {
   HIDE: '@@TOAST/HIDE'
 };
 
-const toastAction = (message, duration, type) => ({
+const toastAction = (message, position, duration, type) => ({
   type,
   payload: {
     message,
-    duration
+    duration,
+    position
   }
 });
 
@@ -21,16 +22,16 @@ export const actionCreators = {
       payload: {}
     };
   },
-  displayError(message, duration = 4000) {
-    return toastAction(message, duration, actions.DISPLAY_ERROR);
+  displayError(message, position = 'bottom', duration = 4000) {
+    return toastAction(message, position, duration, actions.DISPLAY_ERROR);
   },
-  displayWarning(message, duration = 4000) {
-    return toastAction(message, duration, actions.DISPLAY_WARNING);
+  displayWarning(message, position = 'bottom', duration = 4000) {
+    return toastAction(message, position, duration, actions.DISPLAY_WARNING);
   },
-  displaySuccess(message, duration = 4000) {
-    return toastAction(message, duration, actions.DISPLAY_SUCCESS);
+  displaySuccess(message, position = 'bottom', duration = 4000) {
+    return toastAction(message, position, duration, actions.DISPLAY_SUCCESS);
   },
-  displayInfo(message, duration = 4000) {
-    return toastAction(message, duration, actions.DISPLAY_INFO);
+  displayInfo(message, position = 'bottom', duration = 4000) {
+    return toastAction(message, position, duration, actions.DISPLAY_INFO);
   }
 };
