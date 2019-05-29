@@ -38,6 +38,7 @@ export default class Toast extends Component {
         message,
         error,
         warning,
+        success,
         dismissTimeout
       },
       () => {
@@ -50,7 +51,7 @@ export default class Toast extends Component {
   hide() {
     Animated.timing(this.state.shadowOpacity, { toValue: 0 }).start();
     Animated.timing(this.state.fadeAnimation, { toValue: 0 }).start(() => {
-      this.setState({ present: false, message: null, error: false, warning: false, dismissTimeout: null });
+      this.setState({ present: false, message: null, error: false, warning: false, success: false, dismissTimeout: null });
     });
   }
 
@@ -64,6 +65,8 @@ export default class Toast extends Component {
       messageStyles.push(styles.error, this.props.errorStyle);
     } else if (this.state.warning) {
       messageStyles.push(styles.warning, this.props.warningStyle);
+    } else if (this.state.success) {
+      messageStyles.push(styles.warning, this.props.successStyle);
     }
     return (
       <Animated.View
@@ -76,7 +79,8 @@ export default class Toast extends Component {
         <View style={messageStyles}>
           {this.props.getMessageComponent(this.state.message, {
             error: this.state.error,
-            warning: this.state.warning
+            warning: this.state.warning,
+            success: this.state.success
           })}
         </View>
       </Animated.View>
@@ -102,6 +106,8 @@ Toast.propTypes = {
   errorStyle: ViewPropTypes.style,
   warning: PropTypes.bool,
   warningStyle: ViewPropTypes.style,
+  success: PropTypes.bool,
+  successStyle: ViewPropTypes.style,
   duration: PropTypes.number,
   getMessageComponent: PropTypes.func
 };
