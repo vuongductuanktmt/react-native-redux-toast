@@ -11,7 +11,7 @@ const colors = {
 export default StyleSheet.create({
   container: {
     backgroundColor: colors.transparent,
-    bottom: 100,
+    bottom: 10,
     zIndex: 100,
     position: 'absolute',
     left: 0,
