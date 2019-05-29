@@ -17,19 +17,19 @@ export default class Toast extends Component {
     dismissTimeout: null
   };
 
-  componentWillReceiveProps({ message, error, duration, warning }) {
+  componentWillReceiveProps({ message, error, duration, warning, success }) {
     if (message) {
       const dismissTimeout = setTimeout(() => {
         this.props.dispatch(toastActions.hide());
       }, duration);
       clearTimeout(this.state.dismissTimeout);
-      this.show(message, { error, warning, dismissTimeout });
+      this.show(message, { error, warning, success, dismissTimeout });
     } else {
       this.hide();
     }
   }
 
-  show(message, { error, warning, dismissTimeout }) {
+  show(message, { error, warning, success, dismissTimeout }) {
     this.setState(
       {
         present: true,
