@@ -34,7 +34,7 @@ export default StyleSheet.create({
   warning: {
     backgroundColor: colors.yellow
   },
-  green: {
+  success: {
     backgroundColor: colors.green
   },
   shadow: {
