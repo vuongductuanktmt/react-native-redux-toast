@@ -66,7 +66,7 @@ export default class Toast extends Component {
     } else if (this.state.warning) {
       messageStyles.push(styles.warning, this.props.warningStyle);
     } else if (this.state.success) {
-      messageStyles.push(styles.warning, this.props.successStyle);
+      messageStyles.push(styles.success, this.props.successStyle);
     }
     return (
       <Animated.View
