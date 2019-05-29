@@ -5,7 +5,8 @@ const colors = {
   blue: '#40C4FE',
   red: '#F55E64',
   transparent: 'transparent',
-  yellow: '#FFD200'
+  yellow: '#FFD200',
+  green: '#4CAF50'
 };
 
 export default StyleSheet.create({
@@ -32,6 +33,9 @@ export default StyleSheet.create({
   },
   warning: {
     backgroundColor: colors.yellow
+  },
+  green: {
+    backgroundColor: colors.green
   },
   shadow: {
     elevation: 10,
