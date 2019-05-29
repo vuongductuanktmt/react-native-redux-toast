@@ -7,7 +7,8 @@ const defaultState = {
   error: false,
   warning: false,
   success: false,
-  duration: null
+  duration: null,
+  position: 'bottom'
 };
 
 export default function reducer(state = Immutable(defaultState), action) {
@@ -21,6 +22,7 @@ export default function reducer(state = Immutable(defaultState), action) {
         {
           message: action.payload.message,
           duration: action.payload.duration,
+          position: action.payload.position,
           error: action.type === actions.DISPLAY_ERROR,
           warning: action.type === actions.DISPLAY_WARNING,
           success: action.type === actions.DISPLAY_SUCCESS
