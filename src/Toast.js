@@ -17,7 +17,7 @@ export default class Toast extends Component {
     dismissTimeout: null
   };
 
-  componentWillReceiveProps({ message, error, duration, warning, success }) {
+  componentWillReceiveProps({ message, error, duration, position, warning, success }) {
     if (message) {
       const dismissTimeout = setTimeout(() => {
         this.props.dispatch(toastActions.hide());
@@ -73,6 +73,7 @@ export default class Toast extends Component {
         style={[
           styles.shadow,
           styles.container,
+          styles[(['bottom', 'top', 'center'].indexOf(this.props.position) !== -1) ? this.props.position : 'bottom'],
           { opacity: this.state.fadeAnimation, shadowOpacity: this.state.shadowOpacity }
         ]}
       >
@@ -109,5 +110,6 @@ Toast.propTypes = {
   success: PropTypes.bool,
   successStyle: ViewPropTypes.style,
   duration: PropTypes.number,
+  position: PropTypes.string,
   getMessageComponent: PropTypes.func
 };
