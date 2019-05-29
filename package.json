@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wolox/react-native-redux-toast.git"
+    "url": "git+https://github.com/vuongductuanktmt/react-native-redux-toast.git"
   },
   "keywords": [
     "react-native",
@@ -27,9 +27,9 @@
   "author": "Sebastian Balay <sebastian.balay@wolox.com.ar>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Wolox/react-native-redux-toast/issues"
+    "url": "https://github.com/vuongductuanktmt/react-native-redux-toast/issues"
   },
-  "homepage": "https://github.com/Wolox/react-native-redux-toast",
+  "homepage": "https://github.com/vuongductuanktmt/react-native-redux-toast",
   "dependencies": {
     "prop-types": "^15.5.10",
     "seamless-immutable": "^7.1.2"
