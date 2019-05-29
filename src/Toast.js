@@ -23,13 +23,13 @@ export default class Toast extends Component {
         this.props.dispatch(toastActions.hide());
       }, duration);
       clearTimeout(this.state.dismissTimeout);
-      this.show(message, { error, warning, success, dismissTimeout });
+      this.show(message, { error, warning, success, position, dismissTimeout });
     } else {
       this.hide();
     }
   }
 
-  show(message, { error, warning, success, dismissTimeout }) {
+  show(message, { error, warning, success, position, dismissTimeout }) {
     this.setState(
       {
         present: true,
@@ -39,6 +39,7 @@ export default class Toast extends Component {
         error,
         warning,
         success,
+        position,
         dismissTimeout
       },
       () => {
@@ -51,7 +52,7 @@ export default class Toast extends Component {
   hide() {
     Animated.timing(this.state.shadowOpacity, { toValue: 0 }).start();
     Animated.timing(this.state.fadeAnimation, { toValue: 0 }).start(() => {
-      this.setState({ present: false, message: null, error: false, warning: false, success: false, dismissTimeout: null });
+      this.setState({ present: false, message: null, error: false, warning: false, success: false, position: 'bottom', dismissTimeout: null });
     });
   }
 
@@ -73,7 +74,7 @@ export default class Toast extends Component {
         style={[
           styles.shadow,
           styles.container,
-          styles[(['bottom', 'top', 'center'].indexOf(this.props.position) !== -1) ? this.props.position : 'bottom'],
+          styles[(['bottom', 'top', 'center'].indexOf(this.state.position) !== -1) ? this.state.position : 'bottom'],
           { opacity: this.state.fadeAnimation, shadowOpacity: this.state.shadowOpacity }
         ]}
       >
